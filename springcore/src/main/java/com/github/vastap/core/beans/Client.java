@@ -1,4 +1,4 @@
-package com.github.vastap;
+package com.github.vastap.core.beans;
 
 public class Client {
     private String id;
