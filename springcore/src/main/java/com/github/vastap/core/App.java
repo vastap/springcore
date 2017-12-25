@@ -3,7 +3,7 @@ package com.github.vastap.core;
 import com.github.vastap.core.beans.Client;
 import com.github.vastap.core.beans.Event;
 import com.github.vastap.core.loggers.EventLogger;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
@@ -12,9 +12,13 @@ public class App {
     private EventLogger eventLogger;
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         App app = (App) context.getBean("app");
-        app.logEvent("Hello World from user 1!");
+        for (int i = 0; i < 5; i++) {
+            app.logEvent("Hello World from user 1!");
+        }
+        // Instead of context.close() use the hook:
+        context.registerShutdownHook();
     }
 
     public App(Client client, EventLogger eventLogger, Event event) {

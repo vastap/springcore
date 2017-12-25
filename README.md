@@ -9,3 +9,4 @@
     - [2. Dependency Injection](./doc/02_dependency_injection.md)
     - [3. Bean Naming and Context Startup](./doc/03_BeansAndContext.md)
     - [4. Scopes And Inner Beans](./doc/04_InnerBeansAndScopes.md)
+    - [5. Initialize And Destroy](./doc/05_InitializeAndDestroy.md)

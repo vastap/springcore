@@ -13,6 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <version.spring>5.0.2.RELEASE</version.spring>
+    <version.commons.io>2.6</version.commons.io>
   </properties>
 
   <dependencies>
@@ -20,6 +21,12 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <version>${version.spring}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${version.commons.io}</version>
     </dependency>
   </dependencies>
 </project>

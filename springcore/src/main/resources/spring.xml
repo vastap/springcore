@@ -9,8 +9,6 @@
         <constructor-arg value="John Smith"/>
     </bean>
 
-    <bean id="eventLogger" class="com.github.vastap.core.loggers.ConsoleEventLogger"/>
-
     <bean id="dateFormat" class="java.text.DateFormat"
           factory-method="getDateTimeInstance"/>
 
@@ -21,10 +19,21 @@
         <constructor-arg ref="dateFormat"/>
     </bean>
 
+    <bean id="consoleEventLogger" class="com.github.vastap.core.loggers.ConsoleEventLogger"/>
+
+    <bean id="fileEventLogger" class="com.github.vastap.core.loggers.FileEventLogger" init-method="init">
+        <constructor-arg value="C:/Users/veselroger/log.txt"/>
+    </bean>
+
+    <bean id="cacheFileEventLogger" class="com.github.vastap.core.loggers.CacheFileEventLogger" destroy-method="destroy">
+        <constructor-arg value="2"/>
+        <constructor-arg value="C:/Users/veselroger/log.txt"/>
+    </bean>
+
     <bean id="app" class="com.github.vastap.core.App">
         <constructor-arg ref="client"/>
         <constructor-arg ref="event"/>
-        <constructor-arg ref="eventLogger"/>
+        <constructor-arg ref="cacheFileEventLogger"/>
     </bean>
 
 </beans>
