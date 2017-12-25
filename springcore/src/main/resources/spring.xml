@@ -11,8 +11,19 @@
 
     <bean id="eventLogger" class="com.github.vastap.core.loggers.ConsoleEventLogger"/>
 
+    <bean id="dateFormat" class="java.text.DateFormat"
+          factory-method="getDateTimeInstance"/>
+
+    <bean id="event" class="com.github.vastap.core.beans.Event" scope="prototype">
+        <constructor-arg>
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg ref="dateFormat"/>
+    </bean>
+
     <bean id="app" class="com.github.vastap.core.App">
         <constructor-arg ref="client"/>
+        <constructor-arg ref="event"/>
         <constructor-arg ref="eventLogger"/>
     </bean>
 
